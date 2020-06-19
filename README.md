@@ -4,7 +4,7 @@ You can use the [editor on GitHub](https://github.com/jschaefer619/PHIL191VennDo
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-# Introduction & The Approach
+## Introduction & The Approach
 
 Diagrams have the power to communicate information in a visually salient manner.
 
@@ -38,8 +38,47 @@ Initially, my impulse was to find a ready-made graphics package with Venn repres
 
 I spent some time deliberating which programming language to use. Python was highly readable and a favorite of mine, but javascript would seamlessly travel to web. Though I did not have extensive Javascript experience, accessibility was a priority here. Javascript it was. I settled on utilizing the vector.js library to generate the graphics. Though vector.js did not have a large following, it's documentation was readable and importantly, filled with examples of implementation.
 
+The biggest obstacle was deciding how to shade the inside of vector generated circles. Unfortunately, there was no built in function to detect if two shapes were overlapping. I considered finding a more advanced library that was tailored for spatial analysis, but that would complicate this entire process considerably. Then this occured to me:
 
+```
+function coordinateInsideCircle (x, y, shape){
+	let distanceBetweenCoordinateAndShape = Math.sqrt((Math.pow((x - shape.cx),2)) +  Math.pow((y - shape.cy),2))
+	if (distanceBetweenCoordinateAndShape < shape.r)
+		return true;
+	else 
+		return false;
+}
 
+```
+
+Through using a pseudo-grid system based on pixel layout and exploiting the distance formula, I could easily determine if a given point was inside a circle. Essentially, the program could 'scan' over a given area containing circles, then "shade" a space apporpiately by generating small circles in given points.
+
+On a higher level, this program would operate by analyzing a logical sentence, then applying rules to designated circles based on the quantifier.
+
+Abstractly, a given logical sentence contains:
+
+The Subject Set
+The Predicate Set
+The Quantifier
+
+The format is: [Quantifier] [Subject Set] are [Predicate Set]
+
+This program generates circles for each set, then applies rules to their respective circles based on the quantifier
+
+- For ALL quantifier, shade the Subject Set circle in all areas except for the area where the Predicate Set circle ovelaps
+- For NO quantifier, shade the area where the Subject Set and Predicate set overlap
+- For SOME quantifier, shade the area where ONLY the Subject Set and Predicate set overlap, no overlap with other circles
+- For SOME quantifer w/ not, shade ONLY the area of the subject set
+
+To see the source code with comments, view this project's repository.
+
+## Reflections & Improvements
+
+Though rough around this edges, this project did suceed in creating an interactive venn diagram generator for logical sentences.
+
+A strength of my implementation is that, with some GUI expansions, there are no limits on the number of logical sentences that can be expressed. I have limited the number of sentences to four in the current iteration to simplify the GUI. Granted, there are a limited amount of novel statements that can be formed with only four sets in the current sentence format. Additionally, this implementation may lead to longer run times when given a large number of sentences to compute, due to the psudeo-grid method of shading.
+
+In theory, there are 
 
 ### Markdown
 
