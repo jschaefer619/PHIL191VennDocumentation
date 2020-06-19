@@ -16,7 +16,7 @@ Conclusion: All philosophers are mortal.
 
 Philosopher Sun-Joo Shin, among others, studied and systematized the use of Venn Diagrams to visually communicate this form of logical reasoning. Here is a diagram demonstrating how the Venn System displays four types of logical relationships between two sets:
 
-![square of oppositions](https://user-images.githubusercontent.com/56604738/85111398-22496680-b1c9-11ea-9ad3-b00d2a1b072d.png)
+![venn representations](https://user-images.githubusercontent.com/56604738/85115258-3d6ba480-b1d0-11ea-99a7-07455af2debd.jpg)
 
 The goal of this project is to create an interactive system that can generate Venn Diagrams from logical sentences. It was motivated by:
 
@@ -86,7 +86,7 @@ As such:
 
 Using this layout of four circles, there is no way to shade exclusively the area in circle A and circle D, without also shading in the area of another circle. Due to geometric constraints, the Venn System cannot be properly implemented with four sets using regular circles. There are some alternatives.
 
-![Venn's_four_ellipse_construction](https://user-images.githubusercontent.com/56604738/85112669-d4356280-b1ca-11ea-95b9-a4ccbaadc175.png)
+![Venn's_four_ellipse_construction](https://user-images.githubusercontent.com/56604738/85115374-6be97f80-b1d0-11ea-9067-c83188f43a04.png)
 
 Using ovals is a possibility. But attempting this solution would mandate rethinking the pseudo-grid approach to shading. Because the radius of an oval is irregular, it demands a more complex implementation of the 'coordinateInsideCircle' function.
 
