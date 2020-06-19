@@ -120,7 +120,7 @@ Some more improvements to make:
 
 ## Final Remarks
 
-I hope you enjoy this tool! Making a Euler diagram generator is another intruguing prospect...
+I hope you enjoy this tool! Making a Euler diagram generator is another intriguing prospect...
 
 Thank you Professor Greenberg for your guidance throughout this project and for a great spring quarter.
 
