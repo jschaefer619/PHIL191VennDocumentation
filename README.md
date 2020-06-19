@@ -32,7 +32,7 @@ Initially, my impulse was to find a ready-made graphics package with Venn repres
 
 I spent some time deliberating which programming language to use. Python was highly readable and a personal preference, but javascript would seamlessly translate to the web. Though I did not have extensive javascript experience, accessibility was a priority. Javascript it was. I used the [Vector.js library](https://vectorjs.org) to generate the graphics. It's documentation was readable and filled with implementation examples.
 
-The biggest obstacle was shading precise regions inside of vector generated circles. Unfortunately, there was no built in function to detect regions where two shapes were overlapping. I considered finding a more advanced library that was tailored for spatial analysis, but that would complicate this process considerably. Then this occured to me:
+A major obstacle was implementing the shading of precise regions inside of vector generated circles. Unfortunately, there was no built in function to detect regions where two shapes were overlapping. I considered finding a more advanced library that was tailored for spatial analysis, but that would complicate this process considerably. Then this occured to me:
 
 ```
 function coordinateInsideCircle (x, y, shape){
